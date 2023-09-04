@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>admin dashbord</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet"
+    href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+  <link rel="stylesheet" href="./dashbord.css">
+  <link rel="stylesheet" href="./student.css">
+  <link rel="stylesheet" href="./add.css">
+</head>
+
+<body>
+  <input type="checkbox" id="nav-toggle" placeholder="hello">
+  <div class="sideber">
+    <div class="sidebar-brand">
+      <h2><span>Next Step</span>
+      </h2>
+    </div>
+    <div class="sidebar-menu">
+      <ul>
+        <li>
+          <a href="./dashbord.html"><i class="las la-home"></i><span>Dashbord</span></a>
+        </li>
+        <li>
+          <a href="./student.html" class="active"><i class="las la-users"></i><span>Students</span></a>
+        </li>
+        <li>
+          <a href="./teacher.html"><i class="las la-chalkboard-teacher"></i><span>Teachers</span></a>
+        </li>
+        <li>
+          <a href="./transaction.html"> <i class="las la-file-invoice-dollar"></i><span>Transactions</span></a>
+        </li>
+      </ul>
+      </ul>
+    </div>
+
+  </div>
+  <div class="maincontent">
+    <header>
+      <h2>
+        <label for="nav-toggle">
+          <i class="las la-bars"></i>
+        </label>
+        students
+      </h2>
+      <div class="search-wrapper">
+        <i class="las la-search"></i>
+        <input type="search" placeholder="Search here">
+      </div>
+      <div class="user-wrapper">
+        <img src="./images/logo white.jpg" width="25px" height="25px" alt="" class="adminimg">
+        <button><i class="las la-cog"></i><span>steeing</span></button>
+        <a href="./index.html"><button><i class="las la-sign-out-alt"></i><span>steeing</span></button></a>
+
+
+      </div>
+    </header>
+    <div class="container">
+      <div class="title">Add Students</div>
+      <form>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault01">First name</label>
+            <input type="text" class="form-control" id="validationDefault01" placeholder="First name" value="" required>
+          </div>
+          <div class="col-md-4 mb-3">
+            <label for="validationDefault02">Last name</label>
+            <input type="text" class="form-control" id="validationDefault02" placeholder="Last name" value="" required>
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="col-md-4 mb-3">
+            <label for="validationDefaultUsername">Email</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="validationDefaultEmail" placeholder="Email"
+                aria-describedby="inputGroupPrepend2" required>
+            </div>
+          </div>
+
+          <div class="col-md-3 mb-3">
+            <label for="validationDefault04">Contact</label>
+            <input type="text" class="form-control" id="validationDefaultnumber" placeholder="Contact " required>
+          </div>
+        </div>
+
+
+
+
+        <div class="form-row">
+          <div class="col-md-6 mb-3">
+            <label for="validationDefault03">Address</label>
+            <input type="text" class="form-control" id="validationDefault03" placeholder="Address" required>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputState">Course</label>
+            <select id="inputState" class="form-control" onchange="filterStudentsByCourse()">
+              <option selected disabled>Choose...</option>
+              <option value="Web Development" class="options">Web Development</option>
+              <option value="Graphics" class="options">Graphics</option>
+              <option value="Flutter" class="options">Flutter</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="col-md-4 mb-3">
+              <label for="validationDefault10">Fees</label>
+              <input type="text" class="form-control" id="validationDefault10" placeholder="Fees Amount" value=""
+                required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label for="validationDefault03">Shift</label>
+              <input type="text" class="form-control" id="validationDefault13" placeholder="Shift" required>
+            </div>
+          </div>
+
+        </div>
+        <div class="form-row">
+          <div class="col-md-3 mb-3">
+
+            <div class="form-group">
+              <label for="exampleFormControlFile1">Image</label>
+              <input type="file" class="form-control-file" id="exampleFormControlFile1">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="exampleFormControlFile2">Cv</label>
+            <input type="file" class="form-control-file" id="exampleFormControlFile2">
+          </div>
+        </div>
+        <form id="studentForm">
+
+          <button class="btn btn-primary" type="submit" onclick="addStudent()" id="addis">Add<i
+              class="las la-user-plus"></i></button>
+          <button class="btn btn-primary" type="submit" onclick="addStudent()" id="update"
+            style="display: none;">Update</button>
+        </form>
+    </div>
+
+
+    </form>
+
+    </main>
+
+    <main>
+
+      <div class="cards">
+        <div class="cards-single">
+          <div>
+            <h1 id="numbers"></h1>
+            <span>students</span>
+          </div>
+          <div>
+            <i class="las la-users"></i>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+      <div class="recent-grid">
+        <div class="projects">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Classes
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="dropdown">
+              <a class="dropdown-item" href="#">Web development</a>
+              <a class="dropdown-item" href="#">Graphics</a>
+              <a class="dropdown-item" href="#">Flutter</a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-header">
+              <h3> Students</h3>
+              <button onclick="display()"> Add <i class="las la-user-plus"></i></button>
+
+            </div>
+            <div class="card-body">
+              <div class="table-responsive">
+
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Image</td>
+                      <td>Name</td>
+                      <td>contact No</td>
+
+                      <td>Email</td>
+                      <td>Address</td>
+                      <td>Courses</td>
+                      <td>Shift</td>
+                      <td>Actions</td>
+                    </tr>
+                  </thead>
+                  <tbody id="tablebody">
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+  </div>
+  <script src="./add.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
